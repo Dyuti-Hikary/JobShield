@@ -1,0 +1,1 @@
+Upload index.html, style.css and app.js to the ROOT of the GitHub Pages repository. Do not upload a saved ChatGPT webpage/source. The frontend works in demo mode; later set API_BASE_URL in app.js to the deployed Express.js backend.

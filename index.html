@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="JobShield - Secure recruitment and fake job detection platform">
+  <title>JobShield | Secure Recruitment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="navbar">
+  <div class="container nav-inner">
+    <a href="#home" class="brand"><span class="brand-icon">🛡</span><span>Job<span>Shield</span></span></a>
+    <button class="menu-toggle" id="menuToggle">☰</button>
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#jobs">Find Jobs</a>
+      <a href="#companies">Companies</a>
+      <a href="#how-it-works">How It Works</a>
+      <button class="btn btn-outline" id="loginBtn">Login</button>
+      <button class="btn btn-primary" id="registerBtn">Register</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="pulse-dot"></span> Secure recruitment starts here</div>
+      <h1>Find opportunities.<br><span>Stay protected.</span></h1>
+      <p>JobShield helps job seekers identify suspicious job advertisements, verify companies, and build trust in online recruitment.</p>
+      <div class="hero-actions">
+        <a href="#jobs" class="btn btn-primary btn-large">Explore Jobs</a>
+        <button class="btn btn-soft btn-large" id="postJobHeroBtn">Post a Job</button>
+      </div>
+      <div class="trust-row">
+        <div><strong>10+</strong><span>Security Features</span></div>
+        <div><strong>24/7</strong><span>Risk Monitoring</span></div>
+        <div><strong>100%</strong><span>Trust Focused</span></div>
+      </div>
+    </div>
+    <div class="shield-card">
+      <div class="shield-orbit orbit-one"></div>
+      <div class="shield-orbit orbit-two"></div>
+      <div class="shield-main">🛡</div>
+      <div class="risk-card risk-safe"><span class="status-icon">✓</span><div><strong>Verified Job</strong><small>Low risk detected</small></div></div>
+      <div class="risk-card risk-warning"><span class="status-icon">!</span><div><strong>Risk Assessment</strong><small>Suspicious activity checked</small></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="search-section">
+  <div class="container">
+    <div class="search-box">
+      <div class="search-field"><label>Job title or keyword</label><input id="jobSearch" placeholder="e.g. Software Engineer"></div>
+      <div class="search-field"><label>Location</label><select id="locationFilter"><option value="">All locations</option><option>Dhaka</option><option>Chattogram</option><option>Sylhet</option><option>Remote</option></select></div>
+      <div class="search-field"><label>Job type</label><select id="typeFilter"><option value="">All types</option><option>Full-time</option><option>Part-time</option><option>Contract</option><option>Internship</option><option>Remote</option></select></div>
+      <button class="btn btn-primary search-btn" id="searchBtn">Search Jobs</button>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="jobs">
+  <div class="container">
+    <div class="section-heading">
+      <div><span class="section-label">OPPORTUNITIES</span><h2>Featured jobs</h2><p>Explore opportunities with visible verification and risk information.</p></div>
+      <button class="btn btn-outline" id="refreshJobsBtn">Refresh</button>
+    </div>
+    <div class="jobs-grid" id="jobsGrid"></div>
+    <div class="empty-state hidden" id="jobsEmpty"><div>🔎</div><h3>No jobs found</h3><p>Try a different keyword, location, or job type.</p></div>
+  </div>
+</section>
+
+<section class="safety-section" id="how-it-works">
+  <div class="container safety-grid">
+    <div><span class="section-label">WHY JOBSHIELD</span><h2>Recruitment with an extra layer of protection.</h2><p>JobShield combines verification, reporting, company checks and risk assessment to make online recruitment safer and more transparent.</p></div>
+    <div class="feature-list">
+      <article class="feature-item"><span>✓</span><div><h3>Fake Job Detection</h3><p>Suspicious job information can be analyzed and assigned a risk level.</p></div></article>
+      <article class="feature-item"><span>✓</span><div><h3>Verified Companies</h3><p>Company profiles can be reviewed before receiving verified status.</p></div></article>
+      <article class="feature-item"><span>✓</span><div><h3>Report Suspicious Jobs</h3><p>Users can report potentially fraudulent or misleading advertisements.</p></div></article>
+      <article class="feature-item"><span>✓</span><div><h3>Trust & Reviews</h3><p>Recruitment experiences can be shared through ratings and reviews.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="companies">
+  <div class="container">
+    <div class="section-heading"><div><span class="section-label">TRUSTED ECOSYSTEM</span><h2>Company verification</h2><p>Look for verified organizations when evaluating an opportunity.</p></div></div>
+    <div class="companies-grid" id="companiesGrid"></div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="container cta-card">
+    <div><span class="section-label">FOR EMPLOYERS & AGENCIES</span><h2>Build trust around every opportunity.</h2><p>Register your organization and submit job posts for verification.</p></div>
+    <button class="btn btn-light btn-large" id="postJobBtn">Post a Job</button>
+  </div>
+</section>
+</main>
+
+<footer><div class="container footer-inner"><div class="brand"><span class="brand-icon">🛡</span><span>Job<span>Shield</span></span></div><p>© 2026 JobShield. Secure recruitment ecosystem.</p></div></footer>
+
+<div class="modal hidden" id="authModal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card">
+    <button class="modal-close" id="closeAuthModal">×</button>
+    <div class="modal-header"><span class="section-label" id="authLabel">WELCOME BACK</span><h2 id="authTitle">Login to JobShield</h2><p id="authSubtitle">Access your secure recruitment account.</p></div>
+    <form id="authForm">
+      <div class="form-group register-only hidden"><label>Full name</label><input id="fullName" type="text" placeholder="Your full name"></div>
+      <div class="form-group"><label>Email</label><input id="authEmail" type="email" placeholder="you@example.com" required></div>
+      <div class="form-group"><label>Password</label><input id="authPassword" type="password" placeholder="••••••••" required></div>
+      <div class="form-group register-only hidden"><label>Contact number</label><input id="phone" type="tel" placeholder="+8801XXXXXXXXX"></div>
+      <div class="form-row register-only hidden">
+        <div class="form-group"><label>Gender</label><select id="gender"><option value="">Select</option><option>Male</option><option>Female</option><option>Other</option><option>Prefer not to say</option></select></div>
+        <div class="form-group"><label>Account type</label><select id="role"><option value="job_seeker">Job Seeker</option><option value="employer">Employer</option><option value="agency">Recruitment Agency</option></select></div>
+      </div>
+      <div class="form-group register-only hidden"><label>NID number</label><input id="nid" type="text" placeholder="NID number"><small>NID should only be handled securely by the backend.</small></div>
+      <button class="btn btn-primary full-width" type="submit" id="authSubmit">Login</button>
+    </form>
+    <p class="switch-auth"><span id="switchText">Don't have an account?</span> <button id="switchAuth" type="button">Register</button></p>
+    <div class="demo-note">Demo frontend mode — connect the Express.js + MySQL backend for real authentication.</div>
+  </div>
+</div>
+
+<div class="modal hidden" id="jobModal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-card job-modal-card"><button class="modal-close" id="closeJobModal">×</button><div id="jobDetails"></div></div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+<script src="app.js"></script>
+</body>
+</html>
