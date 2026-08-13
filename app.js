@@ -1,8 +1,4 @@
-/*
-  JobShield frontend.
-  Static demo works on GitHub Pages.
-  Later, set API_BASE_URL to the deployed Express.js backend.
-*/
+
 
 const API_BASE_URL = "";
 
