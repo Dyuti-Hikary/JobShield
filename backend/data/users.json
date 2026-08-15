@@ -6,5 +6,29 @@
     "password": "admin123",
     "role": "admin",
     "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Demo Employer",
+    "email": "employer@jobshield.com",
+    "password": "employer123",
+    "role": "employer",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "name": "Demo Job Seeker",
+    "email": "user@jobshield.com",
+    "password": "user123",
+    "role": "jobseeker",
+    "status": "active"
+  },
+  {
+    "id": 4,
+    "name": "Demo Recruitment Agency",
+    "email": "agency@jobshield.com",
+    "password": "agency123",
+    "role": "agency",
+    "status": "active"
   }
 ]
