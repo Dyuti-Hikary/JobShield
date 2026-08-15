@@ -154,10 +154,6 @@ app.post("/api/register", async (req, res) => {
 // START SERVER
 // ===============================
 
-app.listen(PORT, () => {
-
-    console.log(
-        `JobShield backend running on port ${PORT}`
-    );
-
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`JobShield backend running on port ${PORT}`);
 });
