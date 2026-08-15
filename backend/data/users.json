@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "name": "JobShield Admin",
+    "email": "admin@jobshield.com",
+    "password": "admin123",
+    "role": "admin",
+    "status": "active"
+  }
+]
