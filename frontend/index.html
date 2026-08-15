@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>JobShield | Find Jobs You Can Trust</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav class="navbar">
+
+        <div class="logo">
+            🛡️ JobShield
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="#jobs">Jobs</a>
+            <a href="#about">About</a>
+            <a href="login.html" class="login-btn">Login</a>
+
+            <button id="theme-toggle" class="theme-btn">
+                🌙
+            </button>
+        </div>
+
+    </nav>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <span class="hero-tag">
+                🛡️ AI-Powered Job Safety Platform
+            </span>
+
+            <h1>
+                Find Jobs You Can
+                <span>Trust.</span>
+            </h1>
+
+            <p>
+                JobShield helps job seekers identify fraudulent and
+                suspicious job postings before they apply.
+            </p>
+
+
+            <!-- Search -->
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search job title, keyword or company..."
+                >
+
+                <button id="search-btn">
+                    🔍 Search
+                </button>
+
+            </div>
+
+
+            <!-- Quick Features -->
+
+            <div class="hero-features">
+
+                <div>
+                    <strong>✓</strong>
+                    Verified Companies
+                </div>
+
+                <div>
+                    <strong>✓</strong>
+                    AI Risk Detection
+                </div>
+
+                <div>
+                    <strong>✓</strong>
+                    Secure Job Search
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= STATISTICS ================= -->
+
+    <section class="stats">
+
+        <div class="stat-card">
+            <h2>10K+</h2>
+            <p>Jobs Analyzed</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>2.5K+</h2>
+            <p>Verified Companies</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>95%</h2>
+            <p>Detection Accuracy</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>5K+</h2>
+            <p>Job Seekers</p>
+        </div>
+
+    </section>
+
+
+    <!-- ================= JOB SECTION ================= -->
+
+    <section id="jobs" class="jobs-section">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-label">
+                    OPPORTUNITIES
+                </span>
+
+                <h2>
+                    Browse Safer Jobs
+                </h2>
+
+                <p>
+                    Explore job opportunities analyzed by JobShield.
+                </p>
+            </div>
+
+            <a href="jobs.html" class="view-all">
+                View All Jobs →
+            </a>
+
+        </div>
+
+
+        <div id="job-list" class="job-list">
+
+            <!-- Jobs will be loaded using JavaScript -->
+
+            <div class="loading">
+                Loading verified jobs...
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= ABOUT ================= -->
+
+    <section id="about" class="about-section">
+
+        <div class="about-content">
+
+            <span class="section-label">
+                ABOUT JOBSHIELD
+            </span>
+
+            <h2>
+                Making Online Job Searching Safer
+            </h2>
+
+            <p>
+                JobShield is an intelligent web-based platform designed
+                to detect and verify potentially fraudulent job postings.
+                It analyzes suspicious keywords, salary information,
+                company verification status, contact information and
+                other risk indicators.
+            </p>
+
+            <div class="about-features">
+
+                <div class="feature">
+                    <div class="feature-icon">🤖</div>
+                    <div>
+                        <h3>AI Risk Analysis</h3>
+                        <p>
+                            Analyze job posts and identify suspicious
+                            patterns.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🏢</div>
+                    <div>
+                        <h3>Company Verification</h3>
+                        <p>
+                            Identify verified and unverified companies.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="feature">
+                    <div class="feature-icon">🚨</div>
+                    <div>
+                        <h3>Fraud Reporting</h3>
+                        <p>
+                            Report suspicious job advertisements.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CTA ================= -->
+
+    <section class="cta">
+
+        <div>
+
+            <h2>
+                Looking for a safer job search?
+            </h2>
+
+            <p>
+                Join JobShield and search for opportunities with confidence.
+            </p>
+
+        </div>
+
+        <a href="login.html" class="cta-btn">
+            Get Started →
+        </a>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+                <h3>🛡️ JobShield</h3>
+
+                <p>
+                    AI-powered fake job detection and verification
+                    platform.
+                </p>
+            </div>
+
+            <div class="footer-links">
+
+                <a href="index.html">Home</a>
+                <a href="#jobs">Jobs</a>
+                <a href="#about">About</a>
+                <a href="login.html">Login</a>
+
+            </div>
+
+        </div>
+
+        <div class="copyright">
+
+            © 2026 JobShield. University Project.
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
