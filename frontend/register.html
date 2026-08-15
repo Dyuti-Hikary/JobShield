@@ -84,17 +84,22 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 5px;
         }
 
         .signup-btn:hover {
             background: #125589;
         }
 
+        .signup-btn:disabled {
+            background: #9bbbd3;
+            cursor: not-allowed;
+        }
+
         .message {
             text-align: center;
             margin-top: 15px;
             font-size: 14px;
+            min-height: 20px;
         }
 
         .login {
@@ -131,41 +136,79 @@
             <p>Create your account</p>
         </div>
 
+
         <form id="signupForm">
 
+            <!-- Name -->
             <div class="form-group">
-                <label for="name">Full Name</label>
+
+                <label for="name">
+                    Full Name
+                </label>
+
                 <input
                     type="text"
                     id="name"
                     placeholder="Enter your full name"
                     required
                 >
+
             </div>
 
+
+            <!-- Email -->
             <div class="form-group">
-                <label for="email">Email Address</label>
+
+                <label for="email">
+                    Email Address
+                </label>
+
                 <input
                     type="email"
                     id="email"
                     placeholder="example@gmail.com"
                     required
                 >
+
             </div>
 
+
+            <!-- Role -->
             <div class="form-group">
-                <label for="role">Account Type</label>
+
+                <label for="role">
+                    Account Type
+                </label>
 
                 <select id="role" required>
-                    <option value="">Select account type</option>
-                    <option value="job_seeker">Job Seeker</option>
-                    <option value="employer">Employer</option>
-                    <option value="recruitment_agency">Recruitment Agency</option>
+
+                    <option value="">
+                        Select account type
+                    </option>
+
+                    <option value="Job Seeker">
+                        Job Seeker
+                    </option>
+
+                    <option value="Employer">
+                        Employer
+                    </option>
+
+                    <option value="Recruitment Agency">
+                        Recruitment Agency
+                    </option>
+
                 </select>
+
             </div>
 
+
+            <!-- Password -->
             <div class="form-group">
-                <label for="password">Password</label>
+
+                <label for="password">
+                    Password
+                </label>
 
                 <input
                     type="password"
@@ -174,10 +217,16 @@
                     minlength="6"
                     required
                 >
+
             </div>
 
+
+            <!-- Confirm Password -->
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password</label>
+
+                <label for="confirmPassword">
+                    Confirm Password
+                </label>
 
                 <input
                     type="password"
@@ -186,23 +235,48 @@
                     minlength="6"
                     required
                 >
+
             </div>
 
-            <button type="submit" class="signup-btn">
+
+            <!-- Button -->
+            <button
+                type="submit"
+                class="signup-btn"
+                id="signupButton"
+            >
                 Create Account
             </button>
 
-            <div id="message" class="message"></div>
+
+            <!-- Message -->
+            <div
+                id="message"
+                class="message">
+            </div>
 
         </form>
 
+
+        <!-- Login -->
         <div class="login">
+
             Already have an account?
-            <a href="login.html">Login</a>
+
+            <a href="login.html">
+                Login
+            </a>
+
         </div>
 
+
+        <!-- Back -->
         <div class="back">
-            <a href="index.html">← Back to Home</a>
+
+            <a href="index.html">
+                ← Back to Home
+            </a>
+
         </div>
 
     </div>
@@ -210,32 +284,53 @@
 
     <script>
 
-        document
-            .getElementById("signupForm")
-            .addEventListener("submit", function(event) {
+        const signupForm =
+            document.getElementById("signupForm");
+
+        const signupButton =
+            document.getElementById("signupButton");
+
+        const message =
+            document.getElementById("message");
+
+
+        signupForm.addEventListener(
+            "submit",
+            async function(event) {
 
                 event.preventDefault();
 
+
                 const name =
-                    document.getElementById("name").value.trim();
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
 
                 const email =
-                    document.getElementById("email").value.trim();
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
 
                 const role =
-                    document.getElementById("role").value;
+                    document
+                        .getElementById("role")
+                        .value;
 
                 const password =
-                    document.getElementById("password").value;
+                    document
+                        .getElementById("password")
+                        .value;
 
                 const confirmPassword =
-                    document.getElementById("confirmPassword").value;
+                    document
+                        .getElementById("confirmPassword")
+                        .value;
 
-                const message =
-                    document.getElementById("message");
 
+                // Check password
 
-                // Check password match
                 if (password !== confirmPassword) {
 
                     message.style.color = "red";
@@ -247,7 +342,6 @@
                 }
 
 
-                // Check password length
                 if (password.length < 6) {
 
                     message.style.color = "red";
@@ -259,26 +353,104 @@
                 }
 
 
-                // Basic email validation
-                const emailPattern =
-                    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                // Disable button
 
-                if (!emailPattern.test(email)) {
+                signupButton.disabled = true;
 
-                    message.style.color = "red";
+                signupButton.textContent =
+                    "Creating Account...";
+
+                message.textContent = "";
+
+
+                try {
+
+                    /*
+                     * Backend API
+                     *
+                     * This URL will be replaced after
+                     * the backend is deployed.
+                     */
+
+                    const API_URL =
+                        "YOUR_BACKEND_URL/api/register";
+
+
+                    const response =
+                        await fetch(API_URL, {
+
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body: JSON.stringify({
+
+                                name: name,
+                                email: email,
+                                role: role,
+                                password: password
+
+                            })
+
+                        });
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (!response.ok) {
+
+                        throw new Error(
+                            data.message ||
+                            "Registration failed."
+                        );
+
+                    }
+
+
+                    message.style.color =
+                        "green";
 
                     message.textContent =
-                        "Please enter a valid email address.";
+                        "Account created successfully!";
 
-                    return;
+
+                    // Go to login page
+
+                    setTimeout(function() {
+
+                        window.location.href =
+                            "login.html";
+
+                    }, 1200);
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Registration error:",
+                        error
+                    );
+
+
+                    message.style.color =
+                        "red";
+
+                    message.textContent =
+                        error.message ||
+                        "Registration failed.";
+
                 }
 
 
-                // Temporary success message
-                message.style.color = "green";
+                signupButton.disabled = false;
 
-                message.textContent =
-                    "Account information submitted successfully!";
+                signupButton.textContent =
+                    "Create Account";
 
             });
 
